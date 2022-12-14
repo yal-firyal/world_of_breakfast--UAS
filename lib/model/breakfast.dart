@@ -1,26 +1,3 @@
-import 'dart:convert';
-
-Masak masakFromJson(String str) => Masak.fromJson(json.decode(str));
-
-String masakToJson(Masak data) => json.encode(data.toJson());
-
-class Masak {
-  List<Breakfast> breakfasts;
-
-  Masak(
-  {
-    required this.breakfasts,
-  });
-
-  factory Masak.fromJson(Map<String, dynamic> json) => Masak(
-    breakfasts: List<Breakfast>.from(json["breakfasts"].map((x) => Breakfast.fromJson(x))),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "breakfasts": List<dynamic>.from(breakfasts.map((x) => x.toJson())),
-  };
-}
-
 class Breakfast {
   String title;
   String image;
@@ -31,6 +8,8 @@ class Breakfast {
   String serve;
   String minute;
   String desc;
+  List<String> ingredient;
+  List<String> step;
 
   Breakfast(
   {
@@ -43,18 +22,22 @@ class Breakfast {
     required this.serve,
     required this.minute,
     required this.desc,
+    required this.ingredient,
+    required this.step,
   });
 
-  factory Breakfast.fromJson(Map<String, dynamic> json) => Breakfast(
-    title: json['title'],
-    image: json['image'],
-    key: json["key"],
-    kalori: json['kalori'],
-    karbo: json['karbo'],
-    protein: json['protein'],
-    serve: json['serve'],
-    minute: json['minute'],
-    desc: json['desc'],
+  factory Breakfast.fromJson(Map<String, dynamic> map) => Breakfast(
+    title: map['title'],
+    image: map['image'],
+    key: map["key"],
+    kalori: map['kalori'],
+    karbo: map['karbo'],
+    protein: map['protein'],
+    serve: map['serve'],
+    minute: map['minute'],
+    desc: map['desc'],
+    ingredient: List<String>.from(map['ingredient'].map((x) => x)),
+    step: List<String>.from(map['step'].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
@@ -67,5 +50,7 @@ class Breakfast {
     "serve": serve,
     "minute": minute,
     "desc": desc,
+    "ingredient": List<dynamic>.from(ingredient.map((x) => x)),
+    "step": List<dynamic>.from(step.map((x) => x)),
   };
 }

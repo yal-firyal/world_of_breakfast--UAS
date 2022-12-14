@@ -26,8 +26,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
 
           Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.fromLTRB(90, 98, 89, 0),
+            padding: EdgeInsets.only(top: 120),
+            alignment: Alignment.topCenter,
             child: Text(
               "WORLD OF",
               style: GoogleFonts.lexend(
@@ -36,12 +36,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 fontStyle: FontStyle.normal,
                 color: Colors.black,
               ),
+              textAlign: TextAlign.center,
             ),
           ),
 
           Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.fromLTRB(25, 140, 26, 0),
+            padding: EdgeInsets.only(top: 160),
+            alignment: Alignment.topCenter,
             child: Text(
               "Breakfast",
               style: GoogleFonts.berkshireSwash(
@@ -50,16 +51,19 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 fontStyle: FontStyle.normal,
                 color: Color(0xff87A8A1),
               ),
+              textAlign: TextAlign.center,
             ),
           ),
 
           Container(
-            width: 280,
-            height: 50,
-            margin: const EdgeInsets.fromLTRB(60, 305, 60, 0),
+            // width: 280,
+            // height: 50,
+            padding: EdgeInsets.only(top: 300, left: 60, right: 60),
+            alignment: Alignment.topCenter,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: const Color(0xff87A8A1),
+                minimumSize: const Size.fromHeight(55),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),
