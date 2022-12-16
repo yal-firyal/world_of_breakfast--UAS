@@ -29,7 +29,7 @@ class Breakfast {
   factory Breakfast.fromJson(Map<String, dynamic> map) => Breakfast(
     title: map['title'],
     image: map['image'],
-    key: map["key"],
+    key: map['key'],
     kalori: map['kalori'],
     karbo: map['karbo'],
     protein: map['protein'],

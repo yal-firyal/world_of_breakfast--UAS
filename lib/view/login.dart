@@ -14,7 +14,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _formKey = GlobalKey<FormState>();
   TextEditingController emailController = TextEditingController();
   TextEditingController pwdController = TextEditingController();
 
@@ -46,7 +45,11 @@ class _LoginPageState extends State<LoginPage> {
                 textAlign: TextAlign.center,
               ),
             );
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Navbar()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Navbar(str: "${response.data[i]['name']}",
+            )));
             break;
           }
         }
